@@ -28,7 +28,14 @@
                 @Html.DisplayFor(modelItem => item.JokeQuestion)
             </td>
             <td>
-                @(item.Author ?? "Unknown")
+                @if (String.IsNullOrEmpty(item.Author))
+                {
+                    @Html.DisplayFor(modelItem => item.JokeQuestion)
+                }
+                else
+                {
+                    @("Unknown")
+                }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
