@@ -61,3 +61,17 @@ logic, business logic, and data access logic together.
 * Model: manages the behavior and data
 * View: manages the display of data
 * Controller: handles page events and navigation between pages
+
+## View
+
+* HTML CSS code (or similar)
+* Usually gets a list of data from the controller.
+* Dynamically combines data with HTML in a template
+* Razor (ASP.NET)
+
+## Model
+
+* Data related
+* Consists of classes/objects with properties.
+* Uses SQL statements.
+* Supplies the controller with lists of objects.
