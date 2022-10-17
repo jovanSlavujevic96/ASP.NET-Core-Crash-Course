@@ -35,10 +35,9 @@ C#, C++, VB, Java/J++, Fortran, Ruby, Python, ...
     * React, Angular, Vue
     * Mobile apps
 
-## MVC
+## Create project
 
-* There we'll be applied MVC, which stand for "Models, Views and Controllers" pattern,
-which is full-stack ASP.NET type of project
+* There we'll be applied MVC, which is full-stack ASP.NET type of project
 * In order to create MVC project do the following:
 	* Open Visual Studio and select <b>Create New Project</b>
 	* On <i>Search for Templates</i> bar search <b>ASP.NET Core Web App (Model-View-Controller)</b>
@@ -46,3 +45,19 @@ which is full-stack ASP.NET type of project
 	* For <i>Authentication Type</i> select <b>Individual accounts</b> in order to generate interaction with Database
 	* Check-in <i>Configure for HTTPS</i>
 * In order to generate git ignore open command prompt within project directory and enter <b>dotnet new ignore</b> command
+
+## MVC
+
+* MVC stands for "Model, View and Controller"
+* Model = classes (objects)
+* View = web page (Razor HTML)
+* Controller = connects models, business logic and web pages.
+
+## Introduction to the MVC Design Pattern
+
+The MVC desing pattern helps to enforce <u>separation of concerns</u> to help you avoid mixing presentation
+logic, business logic, and data access logic together.
+
+* Model: manages the behavior and data
+* View: manages the display of data
+* Controller: handles page events and navigation between pages
