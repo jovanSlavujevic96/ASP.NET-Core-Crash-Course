@@ -34,3 +34,15 @@ C#, C++, VB, Java/J++, Fortran, Ruby, Python, ...
 * Can be combined with popular javascript front-end services:
     * React, Angular, Vue
     * Mobile apps
+
+## MVC
+
+* There we'll be applied MVC, which stand for "Models, Views and Controllers" pattern,
+which is full-stack ASP.NET type of project
+* In order to create MVC project do the following:
+	* Open Visual Studio and select <b>Create New Project</b>
+	* On <i>Search for Templates</i> bar search <b>ASP.NET Core Web App (Model-View-Controller)</b>
+	* For <i>Target Framework</i> select <b>.NET Core 3.1 (Long-term support)</b>
+	* For <i>Authentication Type</i> select <b>Individual accounts</b> in order to generate interaction with Database
+	* Check-in <i>Configure for HTTPS</i>
+* In order to generate git ignore open command prompt within project directory and enter <b>dotnet new ignore</b> command
