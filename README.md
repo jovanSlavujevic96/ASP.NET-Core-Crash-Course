@@ -75,3 +75,31 @@ logic, business logic, and data access logic together.
 * Consists of classes/objects with properties.
 * Uses SQL statements.
 * Supplies the controller with lists of objects.
+
+## Package Manager Console
+
+* To access PM Console go to <b>Tools</b>-><b>NuGet Package Manager</b>-><b>Package Manager Console</b>
+* Goal of the <b>Package Manager Console</b> is usually to install new dependencies, but also can be used for some database management
+
+## Database Migrations
+
+On PM Console enter <b>add-migration "initialsetup"</b>. It generated initialsetup file within migrations folder.
+
+There are two options for creating databases with a system like this:
+1. ORM - Object Relation Mapper:
+	* Allow the computer to generate database tables based on classes defined in the application.
+	* Database is updated using migrations.
+	* <b>Entity</b> Framework is Microsoft's ORM.
+	* Simple for basic applications.
+2. DAO - Data Access Object:
+	* Manually create tables.
+	* Traditional method of database access.
+	* Write your own SQL statements.
+	* Database managers (DBA's) usually prefer DAOs.
+	* Provides more visibility on finding problems.
+
+ORM - Mapping here is between a class and a table.
+
+Folder called Migrations is the language of creating tables
+
+In order to update database migrations just run command <b>update-database</b> on PM Console
