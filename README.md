@@ -8,7 +8,7 @@
 * ASP stands for "Active Server Pages" - Dynamic web pages, usually connected to a database.
 * Core - open source, cross-platform version of ASP.
 
-## Where does C# fir into .NET ?
+## Where does C# fit into .NET ?
 
 * .NET is NOT a language.
 * The .NET framework consists of runtime engine and libraries for executing

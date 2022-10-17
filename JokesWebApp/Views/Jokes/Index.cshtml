@@ -30,11 +30,11 @@
             <td>
                 @if (String.IsNullOrEmpty(item.Author))
                 {
-                    @Html.DisplayFor(modelItem => item.JokeQuestion)
+                    @("Unknown")
                 }
                 else
                 {
-                    @("Unknown")
+                    @Html.DisplayFor(modelItem => item.Author)
                 }
             </td>
             <td>
