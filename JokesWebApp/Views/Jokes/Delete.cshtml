@@ -1,4 +1,7 @@
 ﻿@model JokesWebApp.Models.Joke
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Delete";
@@ -11,23 +14,34 @@
     <h4>Joke</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.JokeQuestion)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.JokeQuestion)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.JokeAnswer)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.JokeAnswer)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        @if (SignInManager.IsSignedIn(User) && (UserManager.GetUserId(User) == Model.JokeAuthorId))
+        {
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        }
+        else
+        {
+            <input disabled type="submit" value="Delete" class="btn btn-danger" />
+            <p class="text-danger">Not authorized to Delete this joke</p>
+        }
     </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>
