@@ -26,10 +26,10 @@ namespace JokesWebApp.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Author")
+                    b.Property<string>("JokeAnswer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("JokeAnswer")
+                    b.Property<string>("JokeAuthorId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("JokeQuestion")

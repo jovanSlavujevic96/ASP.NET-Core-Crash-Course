@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @model JokesWebApp.Models.Joke
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Create";
@@ -12,7 +13,7 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            <input type="hidden" name="author" value="@User.Identity.Name" />
+            <input type="hidden" asp-for="JokeAuthorId" value="@UserManager.GetUserId(User)" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="JokeQuestion" class="control-label"></label>

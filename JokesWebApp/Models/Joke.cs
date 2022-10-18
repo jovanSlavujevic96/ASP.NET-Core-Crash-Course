@@ -10,7 +10,7 @@ namespace JokesWebApp.Models
         public int Id { get; set; }
         public string JokeQuestion { get; set; }
         public string JokeAnswer { get; set; }
-        public string Author { get; set; }
+        public string JokeAuthorId { get; set; }
 
         public Joke()
         {

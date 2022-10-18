@@ -7,7 +7,7 @@ namespace JokesWebApp.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Author",
+                name: "JokeAuthorId",
                 table: "Joke",
                 nullable: true);
         }
@@ -15,7 +15,7 @@ namespace JokesWebApp.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Author",
+                name: "JokeAuthorId",
                 table: "Joke");
         }
     }
