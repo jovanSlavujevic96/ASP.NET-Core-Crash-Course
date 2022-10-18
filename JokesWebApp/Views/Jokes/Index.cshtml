@@ -1,4 +1,4 @@
-﻿@model IEnumerable<JokesWebApp.Models.Joke>
+﻿@model IEnumerable<Tuple<String, JokesWebApp.Models.Joke>>
 
 @{
     ViewData["Title"] = "Index";
@@ -12,22 +12,23 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.JokeQuestion)
-            </th>
-            <th></th>
+            <th> Question </th>
+            <th> Author </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.JokeQuestion)
+                @Html.DisplayFor(modelItem => item.Item2.JokeQuestion)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @Html.DisplayFor(modelItem => item.Item1)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Item2.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Item2.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Item2.Id">Delete</a>
             </td>
         </tr>
 }

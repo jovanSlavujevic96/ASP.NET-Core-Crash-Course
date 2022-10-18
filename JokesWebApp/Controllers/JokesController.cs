@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using JokesWebApp.Data;
 using JokesWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace JokesWebApp.Controllers
 {
@@ -20,14 +21,23 @@ namespace JokesWebApp.Controllers
             _context = context;
         }
 
+        static private String GetAuthorName(ApplicationDbContext context, Joke joke)
+        {
+            var user = context.Users.Find(joke.JokeAuthorId);
+            return (user is null) ? "Unknown" : user.UserName;
+        }
+
         // GET: Jokes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Joke.ToListAsync());
+            return View(await _context.Joke
+                .Select(j => new Tuple<String, Joke>(GetAuthorName(_context, j), j))
+                .ToListAsync()
+            );
         }
 
         // GET: Jokes/ShowSearchForm
-        public async Task<IActionResult> ShowSearchForm()
+        public IActionResult ShowSearchForm()
         {
             return View();
         }
@@ -36,9 +46,11 @@ namespace JokesWebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
         {
-            return View("Index",
+            return View(
+                "Index",
                 await _context.Joke
                     .Where(j => j.JokeQuestion.Contains(SearchPhrase))
+                    .Select(j => new Tuple<String, Joke>(GetAuthorName(_context, j), j))
                     .ToListAsync()
             );
         }
